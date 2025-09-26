@@ -1,0 +1,15 @@
+css ---------- 3types :  
+          *inline css
+          *inernal css
+          *external css
+
+
+
+# Selector :
+  5 types
+
+* universal Selector :  *
+* element Selector: h1,h2,h3
+* class Selector: .
+* id Selector: #
+* descendant Selector: 

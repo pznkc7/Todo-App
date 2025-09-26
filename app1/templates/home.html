@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+</head>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 10px;
+        background : rgb(183,158,208);
+        color: black;
+    }
+    h1{
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+    form{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+    }
+    input[type = "text"]{
+        flex: 1;
+        padding:10px;
+
+    }
+    button{
+        padding: 10px 12px;
+
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    li{
+        background: rgb(188, 148, 148);
+        margin : 6px 0px;
+        padding: 8px;
+        border-radius: 4px;
+    }
+    .status{
+        font-size:larger;
+        color:blueviolet
+    }
+    a{
+        color: red;
+        text-decoration: none;
+        font-size: 0.9;
+    }
+</style>
+<body>
+    <h1>Todo App</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Enter a Task...">
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for x in todos %}
+          <li>
+              <span>{{x.task}}<span class ='status'>
+                ({{% if x.completed %} Done 
+                {% else %} Pending
+                {% endif %}}) </span>
+              </span>
+                   <a href="{% url 'deleteabc' x.id %}">Delete</a>
+          </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
