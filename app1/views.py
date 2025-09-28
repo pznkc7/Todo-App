@@ -19,3 +19,6 @@ def delete_todo(request,id):
     return redirect('home')
 
 
+
+
+

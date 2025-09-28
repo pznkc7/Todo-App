@@ -1,61 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css link strarts here -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- css link ends here -->
+
+    <!-- font awesome link starts here -->
+     <script src="https://kit.fontawesome.com/74241ca4bb.js" crossorigin="anonymous"></script>
+    <!-- font awesome link ends here -->
     <title>Todo Application</title>
 </head>
 
-<style>
-    body{
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 500px;
-        margin: 40px auto;
-        padding: 10px;
-        background : rgb(183,158,208);
-        color: black;
-    }
-    h1{
-        text-align: center;
-        margin-bottom: 20px;
 
-    }
-    form{
-        display: flex;
-        gap: 10px;
-        justify-content: center;
 
-    }
-    input[type = "text"]{
-        flex: 1;
-        padding:10px;
-
-    }
-    button{
-        padding: 10px 12px;
-
-    }
-    ul{
-        list-style: none;
-        padding: 0;
-        margin-top: 20px;
-    }
-    li{
-        background: rgb(188, 148, 148);
-        margin : 6px 0px;
-        padding: 8px;
-        border-radius: 4px;
-    }
-    .status{
-        font-size:larger;
-        color:blueviolet
-    }
-    a{
-        color: red;
-        text-decoration: none;
-        font-size: 0.9;
-    }
-</style>
 <body>
     <h1>Todo App</h1>
     <form method="POST">
@@ -72,7 +32,7 @@
                 {% else %} Pending
                 {% endif %}}) </span>
               </span>
-                   <a href="{% url 'deleteabc' x.id %}">Delete</a>
+                   <a href="{% url 'deleteabc' x.id %}"><i class="fa-solid fa-trash"></i></a>
           </li>
         {% endfor %}
     </ul>
